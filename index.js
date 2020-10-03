@@ -11,6 +11,15 @@ document.addEventListener("keypress", function(event){
   }
 });
 
+window.addEventListener("click", function(event){
+  // console.log(event.key);
+  if(flag === false){
+    initial_level(event.key.toLowerCase());
+    console.log(keyGenerator());
+    flag =true;
+  }
+});
+
 function initial_level(key){
   if(key !=null){
     lvl++;
