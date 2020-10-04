@@ -34,8 +34,7 @@ document.addEventListener("keypress", function(event){
 
 function initial_level(key){
   if(key !=null){
-    lvl++;
-    $("h1").text("Level "+lvl);
+    $("h1").text("Level 1");
   }else{
     $("h1").text("Press any key to start!");
   }
