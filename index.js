@@ -18,7 +18,7 @@ function touchstart(e){
       $("h1").text("Level "+lvl);
       flag =true;
     }
-    errorChecker =false;
+
   }, false);
 }
 window.addEventListener('touchstart', touchstart, false);
