@@ -13,16 +13,24 @@ document.addEventListener("keypress", function(event){
   }
 });
 
-document.addEventListener('touchstart', function(e) {
-    e.preventDefault();
-    var touch = e.touches[0];
-    alert(touch.pageX + " - " + touch.pageY);
-    if(flag === false && touch.length>0){
-      initial_level(event.key.toLowerCase());
-      console.log(keyGenerator());
-      flag =true;
-    }
-}, false);
+window.addEventListener('load', function(){ // on page load
+
+    document.body.addEventListener('touchstart', function(e){
+        alert(e.changedTouches[0].pageX) // alert pageX coordinate of touch point
+    }, false)
+
+}, false)
+// document.addEventListener('touchstart', function(e) {
+//     e.preventDefault();
+//     var touch = e.touches[0];
+//     alert(touch.pageX + " - " + touch.pageY);
+//     if(flag === false && touch.length>0){
+//       initial_level(event.key.toLowerCase());
+//       console.log(keyGenerator());
+//       flag =true;
+//     }
+// }, false);
+
 
 function initial_level(key){
   if(key !=null){
