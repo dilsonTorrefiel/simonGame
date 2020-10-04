@@ -10,12 +10,14 @@ function touchstart(e){
   var touch =e.touches[0];
 
   target.addEventListener('touchend', function(){
+    code =[];
+    location.reload();
     if(flag === false){
       if(errorChecker ===false){
         console.log(keyGenerator());
       }
       $("h1").text("Level 1");
-      //errorChecker =false;
+      errorChecker =true;
       flag =true;
     }
   }, false);
