@@ -6,7 +6,7 @@ var lvl =0;
 // document.body.addEventListener('touchstart', process_touchstart, false);
 $("body").touchstart(function(event){
   if(flag === false){
-    initial_level(event.key.toLowerCase());
+    lvl++;
     console.log(keyGenerator());
     flag =true;
   }
