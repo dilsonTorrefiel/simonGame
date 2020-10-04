@@ -3,14 +3,22 @@ var code =[];
 var codeInput =[];
 var lvl =0;
 
-// document.body.addEventListener('touchstart', process_touchstart, false);
-$("body").touchstart(function(event){
-  if(flag === false){
-    lvl++;
-    console.log(keyGenerator());
-    flag =true;
-  }
-});
+function touchstart(e){
+  e.preventDefault();
+  var target =e.target;
+  var touch =e.touches[0];
+
+  target.addEventListener('touchend', function(){
+    if(flag === false){
+      lvl++;
+      $("h1").text("Level "+lvl);
+      console.log(keyGenerator());
+      flag =true;
+    }
+  }, false);
+}
+
+document.querySelector('body').addEventListener('touchstart', touchstart, false);
 
 
 document.addEventListener("keypress", function(event){
