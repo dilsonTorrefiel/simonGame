@@ -10,8 +10,7 @@ function touchstart(e){
 
   target.addEventListener('touchend', function(){
     if(flag === false){
-      lvl++;
-      $("h1").text("Level "+lvl);
+      $("h1").text("Level 1");
       console.log(keyGenerator());
       flag =true;
     }
