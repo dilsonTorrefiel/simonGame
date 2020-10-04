@@ -47,10 +47,23 @@ function nextLevel(){
     // console.log("codeInput: "+codeInput);
 }
 
+// $('#step-two').on('click', function(e) {
+//  e.preventDefault();
+// $(this).prop('disabled',true); //disable further clicks
+// …
+
 $("button").click(function(event){
   var e =event.target.id;
   var errorChecker =false;
   codeInput.push(e);
+
+  if(flag ===false){
+    e.preventDefault();
+    $(this).prop('disabled', true);
+  }else{
+    $(this).prop('disabled', false);
+  }
+
   for(var i=0; i<=code.length; i++){
       var a =codeInput;
       var b =code;
