@@ -10,15 +10,14 @@ function touchstart(e){
   var touch =e.touches[0];
 
   target.addEventListener('touchend', function(){
-
     if(flag === false){
       if(errorChecker ===false){
         console.log(keyGenerator());
       }
       $("h1").text("Level "+lvl);
+      //errorChecker =false;
       flag =true;
     }
-
   }, false);
 }
 window.addEventListener('touchstart', touchstart, false);
@@ -81,10 +80,9 @@ $("button").click(function(event){
         }
       }else{
         errorChecker =true;
-        code =[];
         lvl =0;
         flag =false;
-
+        code =[];
         $("h1").text("Game Over! Press any key restart.");
         var error =new Audio("sounds/beep-03.mp3");
         error.play();
