@@ -4,20 +4,14 @@ var codeInput =[];
 var lvl =0;
 
 // document.body.addEventListener('touchstart', process_touchstart, false);
-document.body.addEventListener('touchstart', function(e){
-  for (var i=0; i < ev.targetTouches.length; i++) {
-    process_touchstar(ev.targetTouches[i].target);
-  }
-}, false);
-
-function process_touchstart(ev) {
-  // Use the event's data to call out to the appropriate gesture handlers
-  if(ev.touches.length>0 && flag === false){
+$("body").touchstart(function(event){
+  if(flag === false){
     initial_level(event.key.toLowerCase());
     console.log(keyGenerator());
     flag =true;
   }
-}
+});
+
 
 document.addEventListener("keypress", function(event){
   // console.log(event.key);
@@ -28,17 +22,6 @@ document.addEventListener("keypress", function(event){
   }
 });
 
-
-// document.addEventListener('touchstart', function(e) {
-//     e.preventDefault();
-//     var touch = e.touches[0];
-//     alert(touch.pageX + " - " + touch.pageY);
-//     if(flag === false && touch.length>0){
-//       initial_level(event.key.toLowerCase());
-//       console.log(keyGenerator());
-//       flag =true;
-//     }
-// }, false);
 
 
 function initial_level(key){
