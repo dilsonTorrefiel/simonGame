@@ -3,19 +3,21 @@ var code =[];
 var codeInput =[];
 var lvl =0;
 
+// document.body.addEventListener('touchstart', process_touchstart, false);
+document.body.addEventListener('touchstart', function(e){
+  for (var i=0; i < ev.targetTouches.length; i++) {
+    process_touchstar(ev.targetTouches[i].target);
+  }
+}, false);
 
-window.addEventListener('load', function(){
-    var getEvent =document.getElementById('body');
-    getEvent.addEventListener('touchstart',function(e){
-
-      var touchObj =e.changedTouches[0];
-      if(flag === false && touchObj!=null){
-        initial_level(event.key.toLowerCase());
-        console.log(keyGenerator());
-        flag =true;
-      }
-    });
-});
+function process_touchstart(ev) {
+  // Use the event's data to call out to the appropriate gesture handlers
+  if(ev.touches.length>0 && flag === false){
+    initial_level(event.key.toLowerCase());
+    console.log(keyGenerator());
+    flag =true;
+  }
+}
 
 document.addEventListener("keypress", function(event){
   // console.log(event.key);
