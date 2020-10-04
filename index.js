@@ -3,38 +3,6 @@ var code =[];
 var codeInput =[];
 var lvl =0;
 
-function startup() {
-  var el = document.getElementById("body");
-  var touch =el.addEventListener("touchstart", handleStart, false);
-  // el.addEventListener("touchend", handleEnd, false);
-  // el.addEventListener("touchcancel", handleCancel, false);
-  // el.addEventListener("touchmove", handleMove, false);
-}
-document.addEventListener("DOMContentLoaded", startup);
-
-var ongoingTouches = [];
-function handleStart(evt) {
-  evt.preventDefault();
-  console.log("touchstart.");
-  var el = document.getElementById("body");
-  var ctx = el.getContext("2d");
-  var touches = evt.changedTouches;
-  if(flag === false){
-    initial_level(evt);
-    console.log(keyGenerator());
-    flag =true;
-  }
-  for (var i = 0; i < touches.length; i++) {
-    console.log("touchstart:" + i + "...");
-    ongoingTouches.push(copyTouch(touches[i]));
-    var color = colorForTouch(touches[i]);
-    ctx.beginPath();
-    ctx.arc(touches[i].pageX, touches[i].pageY, 4, 0, 2 * Math.PI, false);  // a circle at the start
-    ctx.fillStyle = color;
-    ctx.fill();
-    console.log("touchstart:" + i + ".");
-  }
-}
 
 document.addEventListener("keypress", function(event){
   // console.log(event.key);
@@ -44,6 +12,17 @@ document.addEventListener("keypress", function(event){
     flag =true;
   }
 });
+
+document.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    var touch = e.touches[0];
+    alert(touch.pageX + " - " + touch.pageY);
+    if(flag === false && touch.length>0){
+      initial_level(event.key.toLowerCase());
+      console.log(keyGenerator());
+      flag =true;
+    }
+}, false);
 
 function initial_level(key){
   if(key !=null){
