@@ -4,6 +4,19 @@ var codeInput =[];
 var lvl =0;
 
 
+window.addEventListener('load', function(){
+    var getEvent =document.getElementById('body');
+    getEvent.addEventListener('touchstart',function(e){
+
+      var touchObj =e.changedTouches[0];
+      if(flag === false && touchObj!=null){
+        initial_level(event.key.toLowerCase());
+        console.log(keyGenerator());
+        flag =true;
+      }
+    });
+});
+
 document.addEventListener("keypress", function(event){
   // console.log(event.key);
   if(flag === false){
@@ -13,13 +26,7 @@ document.addEventListener("keypress", function(event){
   }
 });
 
-window.addEventListener('load', function(){ // on page load
 
-    document.body.addEventListener('touchstart', function(e){
-        alert(e.changedTouches[0].pageX) // alert pageX coordinate of touch point
-    }, false)
-
-}, false)
 // document.addEventListener('touchstart', function(e) {
 //     e.preventDefault();
 //     var touch = e.touches[0];
