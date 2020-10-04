@@ -29,8 +29,6 @@ document.addEventListener("keypress", function(event){
   }
 });
 
-
-
 function initial_level(key){
   if(key !=null){
     lvl++;
@@ -46,11 +44,6 @@ function nextLevel(){
     // console.log("code: "+code);
     // console.log("codeInput: "+codeInput);
 }
-
-// $('#step-two').on('click', function(e) {
-//  e.preventDefault();
-// $(this).prop('disabled',true); //disable further clicks
-// …
 
 $("button").click(function(event){
   var e =event.target.id;
@@ -93,6 +86,8 @@ $("button").click(function(event){
           // console.log(event.key);
           location.reload();
         });
+
+        window.addEventListener('touchstart', touchstart, false);
       }
   }
 });
