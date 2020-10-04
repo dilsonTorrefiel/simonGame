@@ -3,6 +3,7 @@ var code =[];
 var codeInput =[];
 var lvl =0;
 var errorChecker =false;
+var temp =false;
 
 function touchstart(e){
   e.preventDefault();
@@ -10,12 +11,12 @@ function touchstart(e){
   var touch =e.touches[0];
 
   target.addEventListener('touchend', function(){
+
     if(flag === false){
-      if(errorChecker ===false){
+      if(errorChecke ===false){
         console.log(keyGenerator());
       }
-      $("h1").text("Level 1");
-      errorChecker =false;
+      $("h1").text("Level "+lvl);
       flag =true;
     }
   }, false);
@@ -80,11 +81,10 @@ $("button").click(function(event){
         }
       }else{
         errorChecker =true;
-        lvl =0;
-        if(errorChecker ===true){
-          flag =false;
-        }
         code =[];
+        lvl =0;
+        flag =false;
+
         $("h1").text("Game Over! Press any key restart.");
         var error =new Audio("sounds/beep-03.mp3");
         error.play();
