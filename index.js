@@ -80,6 +80,7 @@ $("button").click(function(event){
         errorChecker =true;
         if(errorChecker ===true){
           flag =false;
+          lvl =0;
         }
         code =[];
         $("h1").text("Game Over! Press any key restart.");
