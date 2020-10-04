@@ -2,6 +2,7 @@ var flag =false;
 var code =[];
 var codeInput =[];
 var lvl =0;
+var errorChecker =false;
 
 function touchstart(e){
   e.preventDefault();
@@ -13,6 +14,7 @@ function touchstart(e){
       $("h1").text("Level 1");
       console.log(keyGenerator());
       flag =true;
+      errorChecker =false;
     }
   }, false);
 }
@@ -46,7 +48,6 @@ function nextLevel(){
 
 $("button").click(function(event){
   var e =event.target.id;
-  var errorChecker =false;
   codeInput.push(e);
 
   if(flag ===false){
@@ -76,8 +77,10 @@ $("button").click(function(event){
           // play success sound()
         }
       }else{
-        flag =false;
         errorChecker =true;
+        if(errorChecker ===true){
+          flag =false;
+        }
         code =[];
         $("h1").text("Game Over! Press any key restart.");
         var error =new Audio("sounds/beep-03.mp3");
