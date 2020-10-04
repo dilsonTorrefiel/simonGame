@@ -3,7 +3,6 @@ var code =[];
 var codeInput =[];
 var lvl =0;
 var errorChecker =false;
-var temp =false;
 
 function touchstart(e){
   e.preventDefault();
@@ -19,6 +18,7 @@ function touchstart(e){
       $("h1").text("Level "+lvl);
       flag =true;
     }
+    errorChecker =false;
   }, false);
 }
 window.addEventListener('touchstart', touchstart, false);
