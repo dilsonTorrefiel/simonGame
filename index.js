@@ -2,16 +2,17 @@ var flag =false;
 var code =[];
 var codeInput =[];
 var lvl =0;
-document.addEventListener("keypress", function(event){
-  // console.log(event.key);
-  if(flag === false){
-    initial_level(event.key.toLowerCase());
-    console.log(keyGenerator());
-    flag =true;
-  }
-});
 
-window.addEventListener("click", function(event){
+function startup() {
+  var el = document.getElementById("body");
+  el.addEventListener("touchstart", handleStart, false);
+  el.addEventListener("touchend", handleEnd, false);
+  el.addEventListener("touchcancel", handleCancel, false);
+  el.addEventListener("touchmove", handleMove, false);
+}
+document.addEventListener("DOMContentLoaded", startup);
+
+document.addEventListener("keypress", function(event){
   // console.log(event.key);
   if(flag === false){
     initial_level(event.key.toLowerCase());
@@ -30,10 +31,8 @@ function initial_level(key){
 }
 
 function nextLevel(){
-  if(codeInput.length === code.length){
-      lvl++;
-      $("h1").text("Level "+lvl);
-  }
+  lvl++;
+  $("h1").text("Level "+lvl);
     // console.log("code: "+code);
     // console.log("codeInput: "+codeInput);
 }
