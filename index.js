@@ -17,8 +17,7 @@ function touchstart(e){
     }
   }, false);
 }
-
-document.querySelector('body').addEventListener('touchstart', touchstart, false);
+window.addEventListener('touchstart', touchstart, false);
 
 
 document.addEventListener("keypress", function(event){
