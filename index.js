@@ -14,7 +14,7 @@ function touchstart(e){
       if(errorChecker ===false){
         console.log(keyGenerator());
       }
-      $("h1").text("Level "+lvl);
+      $("h1").text("Level 1");
       //errorChecker =false;
       flag =true;
     }
@@ -80,7 +80,7 @@ $("button").click(function(event){
         }
       }else{
         errorChecker =true;
-        lvl =0;
+        lvl =1;
         flag =false;
         code =[];
         $("h1").text("Game Over! Press any key restart.");
