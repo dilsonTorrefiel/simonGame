@@ -33,13 +33,13 @@ function touchstart(e){
   var target =e.target;
   var touch =e.touches[0];
   target.addEventListener('touchend', function(){
-      if(flag ===false){
+      if(errorChecker === true){
+        window.location.reload();
+      }
+      if(flag ===false && errorChecker === false){
         nextLevel();
         console.log(keyGenerator());
         flag =true;
-      }
-      if(errorChecker === true){
-        window.location.reload();
       }
   }, false);
 }
