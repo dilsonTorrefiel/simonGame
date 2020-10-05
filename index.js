@@ -33,9 +33,8 @@ function touchstart(e){
   var target =e.target;
   var touch =e.touches[0];
   target.addEventListener('touchend', function(){
-
       if(flag ===false){
-        $("h1").text("Level 1");
+        initial_level("0");
         console.log(keyGenerator());
       }
       flag =true;
