@@ -34,7 +34,7 @@ function touchstart(e){
   var touch =e.touches[0];
   target.addEventListener('touchend', function(){
       if(flag ===false){
-        initial_level("null");
+        nextLevel();
         console.log(keyGenerator());
         flag =true;
       }
