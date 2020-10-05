@@ -4,6 +4,7 @@ var codeInput =[];
 var lvl =0;
 var errorChecker =false;
 
+// ----- Detect touch event for Touch enabled device -----------------//
 function touchstart(e){
   e.preventDefault();
   var target =e.target;
@@ -11,20 +12,22 @@ function touchstart(e){
 
   target.addEventListener('touchend', function(){
     code =[];
-    location.reload();
     if(flag === false){
-      if(errorChecker ===false){
-        console.log(keyGenerator());
-      }
+
       $("h1").text("Level 1");
       errorChecker =true;
       flag =true;
+
+      if(errorChecker ===false){
+        console.log(keyGenerator());
+      }
     }
   }, false);
 }
 window.addEventListener('touchstart', touchstart, false);
+// -------------------------------------------------------------------//
 
-
+// ----- key press event listener ------------------------------------//
 document.addEventListener("keypress", function(event){
   // console.log(event.key);
   if(flag === false){
@@ -33,26 +36,30 @@ document.addEventListener("keypress", function(event){
     flag =true;
   }
 });
+// -------------------------------------------------------------------//
 
+// ----- Intitial defaults -------------------------------------------//
 function initial_level(key){
   if(key !=null){
     $("h1").text("Level 1");
-  }else{
+  } else {
     $("h1").text("Press any key to start!");
   }
 }
+// -------------------------------------------------------------------//
 
+// ----- Level Up ----------------------------------------------------//
 function nextLevel(){
   lvl++;
   $("h1").text("Level "+lvl);
-    // console.log("code: "+code);
-    // console.log("codeInput: "+codeInput);
 }
+// -------------------------------------------------------------------//
 
+// ----- Button event listener ---------------------------------------//
 $("button").click(function(event){
   var e =event.target.id;
   codeInput.push(e);
-
+  // disable buttons during first load
   if(flag ===false){
     e.preventDefault();
     $(this).prop('disabled', true);
@@ -63,39 +70,36 @@ $("button").click(function(event){
   for(var i=0; i<=code.length; i++){
       var a =codeInput;
       var b =code;
+      // ----- compare random code to code input ----------------------//
       var n = a[i].localeCompare(b[i]);
-      if(a[0] === b[0] && a[1]===b[1]){
-        errorChecker =false;
-      }else{
-        errorChecker =true;
-      }
 
-      //console.log(n);
-      if( n===0 ){
+      // ----- n=0[equal], n=-1[not equal, n=1[not equal]] ------------//
+      if( n === 0 ){
         if(errorChecker===false && code.length===codeInput.length){
           nextLevel();
           keyGenerator();
           codeInput =[];
           console.log("codeInput: "+codeInput);
-          // play success sound()
         }
-      }else{
+      } else {
         errorChecker =true;
         lvl =1;
         flag =false;
         code =[];
+        // ----- Game over sound -------------------------------------//
         $("h1").text("Game Over! Press any key restart.");
         var error =new Audio("sounds/beep-03.mp3");
         error.play();
-        document.addEventListener("keypress", function(event){
-          // console.log(event.key);
+        // ----- Detect keypress event to restart game ---------------//
+        document.addEventListener("keypress", function (event) {
           location.reload();
         });
-
       }
   }
 });
+// -------------------------------------------------------------------//
 
+// ----- Random key generator ----------------------------------------//
 function keyGenerator(){
   var letter ="";
   var ran =Math.random();
@@ -115,7 +119,9 @@ function keyGenerator(){
   sound(letter);
   return code;
 }
+// -------------------------------------------------------------------//
 
+// ----- Button animation --------------------------------------------//
 function btnAnimate(Key){
   document.querySelector("#"+Key).classList.remove("pressed");
   setTimeout( function(){document.querySelector("#"+Key).classList.add("pressed");}, 100);
@@ -123,7 +129,9 @@ function btnAnimate(Key){
   setTimeout( function(){document.querySelector("#"+Key).classList.add("pressed");}, 100);
   setTimeout( function(){document.querySelector("#"+Key).classList.remove("pressed");}, 300);
 }
+// -------------------------------------------------------------------//
 
+// ----- Play sound  -------------------------------------------------//
 function sound(key){
   if(key ==="a"){
     var buttonA =new Audio("sounds/button-1.mp3");
@@ -139,3 +147,4 @@ function sound(key){
     buttonD.play();
   }
 }
+// -------------------------------------------------------------------//
