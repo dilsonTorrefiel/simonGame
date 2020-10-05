@@ -13,12 +13,8 @@ function touchstart(e){
   target.addEventListener('touchend', function(){
     code =[];
     if(flag === false){
-
       $("h1").text("Level 1");
-      errorChecker =true;
-      flag =true;
-
-      if(errorChecker ===false){
+      if(errorChecker === false){
         console.log(keyGenerator());
       }
     }
