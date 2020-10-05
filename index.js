@@ -32,16 +32,15 @@ function touchstart(e){
   var target =e.target;
   var touch =e.touches[0];
 
-  if( flag === false){
-    target.addEventListener('touchend', function(){
+  target.addEventListener('touchend', function(){
       $("h1").text("Level 1");
       console.log(keyGenerator());
-    }, false);
-    flag = true;
-  }
-
+  }, false);
 }
-window.addEventListener('touchstart', touchstart, false);
+if( flag === false ){
+  window.addEventListener('touchstart', touchstart, false);
+  flag =true;
+}
 // -------------------------------------------------------------------//
 
 // ----- key press event listener ------------------------------------//
