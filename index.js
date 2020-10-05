@@ -4,7 +4,7 @@ var codeInput =[];
 var lvl =0;
 var errorChecker =false;
 
-// ----- Random key generator ----------------------------------------//
+// Random key generator
 function keyGenerator(){
   var letter ="";
   var ran =Math.random();
@@ -24,10 +24,8 @@ function keyGenerator(){
   sound(letter);
   return code;
 }
-// -------------------------------------------------------------------//
 
-// ----- Detect touch event for Touch enabled device -----------------//
-
+// Detect touch event for Touch enabled device
 function touchstart(e){
   //e.preventDefault();
   var target =e.target;
@@ -45,17 +43,8 @@ function touchstart(e){
 }
 document.addEventListener('touchstart', touchstart, false);
 
-// touch();
-// function touch(){
-//   if(flag === false){
-//     document.addEventListener('touchstart', touchstart, false);
-//   } else {
-//     document.addEventListener('touchstart', touchstart, true);
-//   }
-// }
-// -------------------------------------------------------------------//
 
-// ----- key press event listener ------------------------------------//
+// key press event listener
 document.addEventListener("keypress", function(event){
   // console.log(event.key);
   if(flag === false){
@@ -64,9 +53,8 @@ document.addEventListener("keypress", function(event){
     flag =true;
   }
 });
-// -------------------------------------------------------------------//
 
-// ----- Intitial defaults -------------------------------------------//
+// Intitial defaults
 function initial_level(key){
   if(key !=null){
     $("h1").text("Level 1");
@@ -74,16 +62,14 @@ function initial_level(key){
     $("h1").text("Press any key to start!");
   }
 }
-// -------------------------------------------------------------------//
 
-// ----- Level Up ----------------------------------------------------//
+// Level Up
 function nextLevel(){
   lvl++;
   $("h1").text("Level "+lvl);
 }
-// -------------------------------------------------------------------//
 
-// ----- Button event listener ---------------------------------------//
+// Button event listener
 $("button").click(function(event){
   var e =event.target.id;
   codeInput.push(e);
@@ -123,19 +109,15 @@ $("button").click(function(event){
       }
   }
 });
-// -------------------------------------------------------------------//
 
-// ----- Button animation --------------------------------------------//
+// Button animation
 function btnAnimate(Key){
   document.querySelector("#"+Key).classList.remove("pressed");
   setTimeout( function(){document.querySelector("#"+Key).classList.add("pressed");}, 100);
   setTimeout( function(){document.querySelector("#"+Key).classList.remove("pressed");}, 300);
-  setTimeout( function(){document.querySelector("#"+Key).classList.add("pressed");}, 100);
-  setTimeout( function(){document.querySelector("#"+Key).classList.remove("pressed");}, 300);
 }
-// -------------------------------------------------------------------//
 
-// ----- Play sound  -------------------------------------------------//
+// Play sound
 function sound(key){
   if(key ==="a"){
     var buttonA =new Audio("sounds/button-1.mp3");
@@ -151,4 +133,3 @@ function sound(key){
     buttonD.play();
   }
 }
-// -------------------------------------------------------------------//
