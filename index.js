@@ -114,7 +114,7 @@ $("button").click(function(event){
         error.play();
         // ----- Detect keypress event to restart game ---------------//
         document.addEventListener("keypress", function (event) {
-          location.reload();
+          window.location.reload();
         });
       }
   }
