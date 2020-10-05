@@ -1,6 +1,9 @@
 body{
   text-align: center;
   background-color: #191970;
+}
+
+button{
   touch-action: manipulation;
 }
 
