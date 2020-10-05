@@ -28,19 +28,16 @@ function keyGenerator(){
 
 // ----- Detect touch event for Touch enabled device -----------------//
 function touchstart(e){
-  e.preventDefault();
+  //e.preventDefault();
   var target =e.target;
   var touch =e.touches[0];
 
   target.addEventListener('touchend', function(){
       $("h1").text("Level 1");
-      //console.log(keyGenerator());
+      console.log(keyGenerator());
   }, false);
 }
-if( flag === false ){
-  window.addEventListener('touchstart', touchstart, false);
-  flag =true;
-}
+window.addEventListener('touchstart', touchstart, false);
 // -------------------------------------------------------------------//
 
 // ----- key press event listener ------------------------------------//
