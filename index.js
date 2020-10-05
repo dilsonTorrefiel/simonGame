@@ -40,7 +40,15 @@ function touchstart(e){
       flag =true;
   }, false);
 }
-document.addEventListener('touchstart', touchstart, false);
+touch();
+
+function touch(){
+  if(flag === false){
+    document.addEventListener('touchstart', touchstart, false);
+  } else {
+    document.addEventListener('touchstart', touchstart, true);
+  }
+}
 // -------------------------------------------------------------------//
 
 // ----- key press event listener ------------------------------------//
