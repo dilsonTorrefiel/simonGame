@@ -101,7 +101,6 @@ $("button").click(function(event){
         errorChecker =true;
         lvl =1;
         flag =false;
-        code =[];
         // ----- Game over sound -------------------------------------//
         $("h1").text("Game Over! Press any key restart.");
         var error =new Audio("sounds/beep-03.mp3");
@@ -109,6 +108,8 @@ $("button").click(function(event){
         // ----- Detect keypress event to restart game ---------------//
         document.addEventListener("keypress", function (event) {
           location.reload();
+          document.querySelector("button").classList.remove("pressed");
+          //code =[];
         });
       }
   }
