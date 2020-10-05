@@ -14,9 +14,10 @@ function touchstart(e){
     code =[];
     if(flag === false){
       $("h1").text("Level 1");
-      if(errorChecker === false){
-        console.log(keyGenerator());
-      }
+      console.log(keyGenerator());
+      // if(errorChecker === false){
+      //   console.log(keyGenerator());
+      // }
     }
   }, false);
 }
