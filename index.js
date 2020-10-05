@@ -33,7 +33,7 @@ function touchstart(e){
   var target =e.target;
   var touch =e.touches[0];
   target.addEventListener('touchend', function(){
-      
+
       if(flag ===false){
         $("h1").text("Level 1");
         console.log(keyGenerator());
@@ -41,7 +41,7 @@ function touchstart(e){
       flag =true;
   }, false);
 }
-window.addEventListener('touchstart', touchstart, false);
+document.addEventListener('touchstart', touchstart, false);
 // -------------------------------------------------------------------//
 
 // ----- key press event listener ------------------------------------//
