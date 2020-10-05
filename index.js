@@ -34,7 +34,7 @@ function touchstart(e){
 
   target.addEventListener('touchend', function(){
       $("h1").text("Level 1");
-      console.log(keyGenerator());
+      //console.log(keyGenerator());
   }, false);
 }
 if( flag === false ){
