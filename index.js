@@ -36,13 +36,15 @@ function touchstart(e){
       if(flag ===false){
         initial_level("null");
         console.log(keyGenerator());
+        flag =true;
+      }
+      if(errorChecker === true){
         window.location.reload();
       }
-      flag =true;
   }, false);
 }
-touch();
 
+touch();
 function touch(){
   if(flag === false){
     document.addEventListener('touchstart', touchstart, false);
