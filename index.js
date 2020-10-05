@@ -34,8 +34,9 @@ function touchstart(e){
   var touch =e.touches[0];
   target.addEventListener('touchend', function(){
       if(flag ===false){
-        initial_level("0");
+        initial_level("null");
         console.log(keyGenerator());
+        window.location.reload();
       }
       flag =true;
   }, false);
