@@ -32,13 +32,14 @@ function touchstart(e){
   var target =e.target;
   var touch =e.touches[0];
 
-  target.addEventListener('touchend', function(){
-
-    $("h1").text("Level 1");
-    if(flag === false){
+  if( flag === false){
+    target.addEventListener('touchend', function(){
+      $("h1").text("Level 1");
       console.log(keyGenerator());
-    }
-  }, false);
+    }, false);
+    flag = true;
+  }
+
 }
 window.addEventListener('touchstart', touchstart, false);
 // -------------------------------------------------------------------//
