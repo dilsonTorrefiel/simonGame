@@ -4,6 +4,28 @@ var codeInput =[];
 var lvl =0;
 var errorChecker =false;
 
+// ----- Random key generator ----------------------------------------//
+function keyGenerator(){
+  var letter ="";
+  var ran =Math.random();
+  ran =Math.round(ran*3)+1;
+  if(ran === 1){
+    letter ="a";
+  }else if(ran ===2){
+    letter ="b";
+  }
+  else if(ran ===3){
+    letter ="c";
+  }else if(ran ===4){
+    letter ="d";
+  }
+  code.push(letter);
+  btnAnimate(letter);
+  sound(letter);
+  return code;
+}
+// -------------------------------------------------------------------//
+
 // ----- Detect touch event for Touch enabled device -----------------//
 function touchstart(e){
   e.preventDefault();
@@ -11,13 +33,10 @@ function touchstart(e){
   var touch =e.touches[0];
 
   target.addEventListener('touchend', function(){
-    code =[];
+
+    $("h1").text("Level 1");
     if(flag === false){
-      $("h1").text("Level 1");
       console.log(keyGenerator());
-      // if(errorChecker === false){
-      //   console.log(keyGenerator());
-      // }
     }
   }, false);
 }
@@ -94,28 +113,6 @@ $("button").click(function(event){
       }
   }
 });
-// -------------------------------------------------------------------//
-
-// ----- Random key generator ----------------------------------------//
-function keyGenerator(){
-  var letter ="";
-  var ran =Math.random();
-  ran =Math.round(ran*3)+1;
-  if(ran === 1){
-    letter ="a";
-  }else if(ran ===2){
-    letter ="b";
-  }
-  else if(ran ===3){
-    letter ="c";
-  }else if(ran ===4){
-    letter ="d";
-  }
-  code.push(letter);
-  btnAnimate(letter);
-  sound(letter);
-  return code;
-}
 // -------------------------------------------------------------------//
 
 // ----- Button animation --------------------------------------------//
