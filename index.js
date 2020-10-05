@@ -27,11 +27,18 @@ function keyGenerator(){
 // -------------------------------------------------------------------//
 
 // ----- Detect touch event for Touch enabled device -----------------//
+
 function touchstart(e){
   //e.preventDefault();
   var target =e.target;
   var touch =e.touches[0];
-
+  if(flag ===false){
+    $(this).prop('disabled', false);
+  }else{
+    e.preventDefault();
+    $(this).prop('disabled', true);
+  }
+  flag =true;
   target.addEventListener('touchend', function(){
       $("h1").text("Level 1");
       console.log(keyGenerator());
