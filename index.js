@@ -3,25 +3,33 @@ var code =[];
 var codeInput =[];
 var lvl =0;
 var errorChecker =false;
+var errorSound;
+
 
 // Random key generator
 function keyGenerator(){
-  var letter ="";
   var ran =Math.random();
   ran =Math.round(ran*3)+1;
-  if(ran === 1){
-    letter ="a";
-  }else if(ran ===2){
-    letter ="b";
+  var key;
+  switch(ran){
+    case 1:
+      key ="a";
+      break;
+    case 2:
+      key ="b";
+      break;
+    case 3:
+      key ="c";
+      break;
+    case 4:
+      key ="d";
+      break;
+    default:
+      key ="";
   }
-  else if(ran ===3){
-    letter ="c";
-  }else if(ran ===4){
-    letter ="d";
-  }
-  code.push(letter);
-  btnAnimate(letter);
-  sound(letter);
+  code.push(key);
+  btnAnimate(key);
+  sound(key);
   return code;
 }
 
@@ -57,7 +65,8 @@ document.addEventListener("keypress", function(event){
 // Intitial defaults
 function initial_level(key){
   if(key !=null){
-    $("h1").text("Level 1");
+    lvl++;
+    $("h1").text("Level "+lvl);
   } else {
     $("h1").text("Press any key to start!");
   }
@@ -72,6 +81,7 @@ function nextLevel(){
 // Button event listener
 $("button").click(function(event){
   var e =event.target.id;
+  console.log(event);
   codeInput.push(e);
   // disable buttons during first load
   if(flag ===false){
@@ -88,24 +98,41 @@ $("button").click(function(event){
       var n = a[i].localeCompare(b[i]);
 
       // ----- n=0[equal], n=-1[not equal, n=1[not equal]] ------------//
-      if( n === 0 ){
-        if(errorChecker===false && code.length===codeInput.length){
-          nextLevel();
-          keyGenerator();
-          codeInput =[];
-          console.log("codeInput: "+codeInput);
-        }
-      } else {
-        errorChecker =true;
-        flag =false;
-        // ----- Game over sound -------------------------------------//
-        $("h1").text("Game Over! Press any key restart.");
-        var error =new Audio("sounds/beep-03.mp3");
-        error.play();
-        // ----- Detect keypress event to restart game ---------------//
-        document.addEventListener("keypress", function (event) {
-          window.location.reload();
-        });
+      switch(n){
+        case 0:
+            if((errorChecker === false) && (codeInput.length === code.length)){
+              nextLevel();
+              keyGenerator();
+              codeInput =[];
+              console.log("codeInput: "+codeInput);
+            }
+            break;
+        case -1:
+            errorChecker =true;
+            flag =false;
+            // ----- Game over sound -------------------------------------//
+            $("h1").text("Game Over! Press any key restart.");
+            errorSound =new Audio("sounds/beep-03.mp3");
+            errorSound.play();
+            // ----- Detect keypress event to restart game ---------------//
+            document.addEventListener("keypress", function (event) {
+              window.location.reload();
+            });
+            break;
+        case 1:
+            errorChecker =true;
+            flag =false;
+            // ----- Game over sound -------------------------------------//
+            $("h1").text("Game Over! Press any key restart.");
+            errorSound =new Audio("sounds/beep-03.mp3");
+            errorSound.play();
+            // ----- Detect keypress event to restart game ---------------//
+            document.addEventListener("keypress", function (event) {
+              window.location.reload();
+            });
+            break;
+        default:
+            errorChecker=false;
       }
   }
 });

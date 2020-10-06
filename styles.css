@@ -1,8 +1,9 @@
 body{
   text-align: center;
-  background-color: #191970;
+  background-color:	#778899;
 }
 
+/* disable double tap zoom */
 button{
   touch-action: manipulation;
 }
@@ -17,7 +18,7 @@ h1{
 p{
   font-family: 'Press Start 2P', cursive;
   font-size: 0.75rem;
-  color: #c0c0c0;
+  color: 	#c0c0c0;
   margin: 0;
   padding-top: 2%;
 }
@@ -42,7 +43,7 @@ p{
   width: 12rem;
   height: 12rem;
   border-radius: 85%;
-  border-color: grey;
+  border-color:	#2f4f4f;
   border-width: 10px;
 }
 
@@ -52,7 +53,7 @@ p{
       width: 8.5rem;
       height: 8.5rem;
       border-radius: 85%;
-      border-color: grey;
+      border-color:	#2f4f4f;
       border-width: 8px;
     }
 }
@@ -63,7 +64,7 @@ p{
       width: 12rem;
       height: 12rem;
       border-radius: 85%;
-      border-color: grey;
+      border-color:	#2f4f4f;
       border-width: 6px;
     }
 }
@@ -74,7 +75,7 @@ p{
       width: 12rem;
       height: 12rem;
       border-radius: 85%;
-      border-color: grey;
+      border-color:	#2f4f4f;
       border-width: 8px;
     }
 }
@@ -85,14 +86,14 @@ p{
       width: 12rem;
       height: 12rem;
       border-radius: 85%;
-      border-color: grey;
+      border-color:	#2f4f4f;
       border-width: 8px;
     }
 }
 
 
 .pressed {
-  box-shadow: 0 3px 4px 0 #DBEDF3;
+  box-shadow: 0 3px 5px 0 #fff;
   opacity: 0.5;
 }
 
