@@ -40,8 +40,8 @@ p{
 }
 
 .btn{
-  width: 12rem;
-  height: 12rem;
+  width: 14rem;
+  height: 14rem;
   border-radius: 85%;
   border-color:	#2f4f4f;
   border-width: 10px;
@@ -50,8 +50,8 @@ p{
 @media (max-width: 1199px) {
 
     .btn{
-      width: 8.5rem;
-      height: 8.5rem;
+      width: 10rem;
+      height: 10rem;
       border-radius: 85%;
       border-color:	#2f4f4f;
       border-width: 8px;
@@ -61,8 +61,8 @@ p{
 @media (max-width: 770px) {
 
     .btn{
-      width: 12rem;
-      height: 12rem;
+      width: 14rem;
+      height: 14rem;
       border-radius: 85%;
       border-color:	#2f4f4f;
       border-width: 6px;
@@ -72,8 +72,8 @@ p{
 @media (max-width: 770px) {
 
     .btn{
-      width: 12rem;
-      height: 12rem;
+      width: 14rem;
+      height: 14rem;
       border-radius: 85%;
       border-color:	#2f4f4f;
       border-width: 8px;
@@ -83,8 +83,8 @@ p{
 @media (max-width: 580px) {
 
     .btn{
-      width: 12rem;
-      height: 12rem;
+      width: 14rem;
+      height: 14rem;
       border-radius: 85%;
       border-color:	#2f4f4f;
       border-width: 8px;
@@ -94,26 +94,26 @@ p{
 
 .pressed {
   box-shadow: 0 3px 5px 0 #fff;
-  opacity: 0.5;
+  opacity: 0.25;
 }
 
 #a{
-  margin: 5%;
+  margin: 2%;
   background-color: #00ff00;
 }
 
 #b{
-  margin: 5%;
+  margin: 2%;
   background-color: 	#ff0000;
 }
 
 #c{
-  margin: 5%;
+  margin: 2%;
   background-color: #ffff00;
 }
 
 #d{
-  margin: 5%;
+  margin: 2%;
   background-color: #0000ff;
 }
 
