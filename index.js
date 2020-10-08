@@ -79,7 +79,7 @@ $("button").click(function(event){
             flag =false;
             // ----- Game over sound -------------------------------------//
             $("h1").text("Game Over! Press any key restart.");
-            errorSound =new Audio("sounds/beep-03.mp3");
+            errorSound =new Audio("sounds/wrong.mp3");
             errorSound.play();
             // ----- Detect keypress event to restart game ---------------//
             document.addEventListener("keypress", function (event) {
@@ -92,7 +92,7 @@ $("button").click(function(event){
             flag =false;
             // ----- Game over sound -------------------------------------//
             $("h1").text("Game Over! Press any key restart.");
-            errorSound =new Audio("sounds/beep-03.mp3");
+            errorSound =new Audio("sounds/wrong.mp3");
             errorSound.play();
             // ----- Detect keypress event to restart game ---------------//
             document.addEventListener("keypress", function (event) {
@@ -136,22 +136,22 @@ function keyGenerator(){
 // Button animation
 function btnAnimate(Key){
   document.querySelector("#"+Key).classList.add("pressed");
-  setTimeout( function(){document.querySelector("#"+Key).classList.remove("pressed");}, 400);
+  setTimeout( function(){document.querySelector("#"+Key).classList.remove("pressed");}, 500);
 }
 
 // Play sound
 function sound(key){
   if(key ==="a"){
-    var buttonA =new Audio("sounds/button-1.mp3");
+    var buttonA =new Audio("sounds/green.mp3");
     buttonA.play();
   }else if(key ==="b"){
-    var buttonB =new Audio("sounds/button-3.mp3");
+    var buttonB =new Audio("sounds/red.mp3");
     buttonB.play();
   }else if(key ==="c"){
-    var buttonC =new Audio("sounds/button-6.mp3");
+    var buttonC =new Audio("sounds/yellow.mp3");
     buttonC.play();
   }else if(key ==="d"){
-    var buttonD =new Audio("sounds/button-7.mp3");
+    var buttonD =new Audio("sounds/blue.mp3");
     buttonD.play();
   }
 }
