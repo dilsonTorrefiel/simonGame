@@ -10,6 +10,7 @@ function touchstart(e){
   //e.preventDefault();
   var target =e.target;
   var touch =e.touches[0];
+
   target.addEventListener('touchend', function(){
       if(errorChecker === true){
         window.location.reload();
@@ -28,7 +29,8 @@ document.addEventListener("keypress", function(event){
   // console.log(event.key);
   if(flag === false){
     initial_level(event.key.toLowerCase());
-    console.log(keyGenerator());
+    keyGenerator();
+    // console.log(keyGenerator());
     flag =true;
   }
 });
@@ -51,15 +53,20 @@ function nextLevel(){
 
 // Button event listener
 $("button").click(function(event){
+
   var e =event.target.id;
-  console.log(event);
+  // console.log(event);
   codeInput.push(e);
+
   // disable buttons during first load
   if(flag ===false){
     e.preventDefault();
     $(this).prop('disabled', true);
   }else{
     $(this).prop('disabled', false);
+    // button animation during click
+    document.querySelector("#"+e).classList.add("press");
+    setTimeout( function(){document.querySelector("#"+e).classList.remove("press");}, 200);
   }
 
   for(var i=0; i<=code.length; i++){

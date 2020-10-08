@@ -97,6 +97,13 @@ p{
   opacity: 0.25;
 }
 
+.press {
+  box-shadow: 5px 5px 5px #fff;
+
+  border-color: #fff;
+  /* opacity: 0.25; */
+}
+
 #a{
   margin: 2%;
   background-color: #00ff00;
