@@ -136,7 +136,7 @@ function keyGenerator(){
 // Button animation
 function btnAnimate(Key){
   document.querySelector("#"+Key).classList.add("pressed");
-  setTimeout( function(){document.querySelector("#"+Key).classList.remove("pressed");}, 100);
+  setTimeout( function(){document.querySelector("#"+Key).classList.remove("pressed");}, 500);
 }
 
 // Play sound
