@@ -5,34 +5,6 @@ var lvl =0;
 var errorChecker =false;
 var errorSound;
 
-
-// Random key generator
-function keyGenerator(){
-  var ran =Math.random();
-  ran =Math.round(ran*3)+1;
-  var key;
-  switch(ran){
-    case 1:
-      key ="a";
-      break;
-    case 2:
-      key ="b";
-      break;
-    case 3:
-      key ="c";
-      break;
-    case 4:
-      key ="d";
-      break;
-    default:
-      key ="";
-  }
-  code.push(key);
-  btnAnimate(key);
-  sound(key);
-  return code;
-}
-
 // Detect touch event for Touch enabled device
 function touchstart(e){
   //e.preventDefault();
@@ -50,7 +22,6 @@ function touchstart(e){
   }, false);
 }
 document.addEventListener('touchstart', touchstart, false);
-
 
 // key press event listener
 document.addEventListener("keypress", function(event){
@@ -92,21 +63,17 @@ $("button").click(function(event){
   }
 
   for(var i=0; i<=code.length; i++){
-      var a =codeInput;
-      var b =code;
       // ----- compare random code to code input ----------------------//
-      var n = a[i].localeCompare(b[i]);
-
-      // ----- n=0[equal], n=-1[not equal, n=1[not equal]] ------------//
+      var n = codeInput[i].localeCompare(code[i]);
       switch(n){
         case 0:
-            if((errorChecker === false) && (codeInput.length === code.length)){
+            if((errorChecker === false) && (code.length === codeInput.length)){
               nextLevel();
               keyGenerator();
-              codeInput =[];
-              console.log("codeInput: "+codeInput);
+              setTimeout( function(){codeInput =[];}, 50);
             }
             break;
+
         case -1:
             errorChecker =true;
             flag =false;
@@ -119,6 +86,7 @@ $("button").click(function(event){
               window.location.reload();
             });
             break;
+
         case 1:
             errorChecker =true;
             flag =false;
@@ -131,17 +99,44 @@ $("button").click(function(event){
               window.location.reload();
             });
             break;
+
         default:
-            errorChecker=false;
+            errorChecker =true;
       }
   }
 });
 
+// Random key generator
+function keyGenerator(){
+  var ran =Math.random();
+  ran =Math.round(ran*3)+1;
+  var key;
+  switch(ran){
+    case 1:
+      key ="a";
+      break;
+    case 2:
+      key ="b";
+      break;
+    case 3:
+      key ="c";
+      break;
+    case 4:
+      key ="d";
+      break;
+    default:
+      key ="";
+  }
+  code.push(key);
+  btnAnimate(key);
+  sound(key);
+  return code;
+}
+
 // Button animation
 function btnAnimate(Key){
-  document.querySelector("#"+Key).classList.remove("pressed");
-  setTimeout( function(){document.querySelector("#"+Key).classList.add("pressed");}, 100);
-  setTimeout( function(){document.querySelector("#"+Key).classList.remove("pressed");}, 300);
+  document.querySelector("#"+Key).classList.add("pressed");
+  setTimeout( function(){document.querySelector("#"+Key).classList.remove("pressed");}, 100);
 }
 
 // Play sound
